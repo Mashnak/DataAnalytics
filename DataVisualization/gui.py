@@ -1,15 +1,18 @@
 from tkinter import *
 from tkinter import filedialog
 from DataImport import CSVImport
+import webbrowser
 
 window = Tk()
 window.title('CSV Analytics')
+
 window.geometry("800x600+%d+%d" % (
     ((window.winfo_screenwidth() / 2.) - (800 / 2.)), ((window.winfo_screenheight() / 2.) - (600 / 2.))))
-NORM_FONT = ("Verdana", 10)
 
 csvfile = None
 defaultbg = window.cget('bg')
+errorbg = 'red'
+successbg = 'green'
 
 
 def callback():
@@ -26,22 +29,39 @@ def callback():
 
 
 def popupmsgsuccess():
-    flash_label.config(text='CSV Datei geladen!', background='green')
+    flash_label.config(text='CSV Datei geladen!', background=successbg)
 
 
 def popupmsgfail(e):
-    flash_label.config(text=e, background='red')
+    flash_label.config(text=e, background=errorbg)
 
 
 def getheaders():
     try:
         headers = CSVImport.getheader(csvfile)
-        header_label.config(text=headers, background=defaultbg, wraplengt=200)
+        header_label.config(text=headers, background=defaultbg, wraplengt=800)
     except TypeError:
-        header_label.config(text='Erst CSV Datei auswählen!', background='red')
+        header_label.config(text='Erst CSV Datei auswählen!', background=errorbg)
+
+
+def about():
+    def openlink():
+        webbrowser.open(r'https://github.com/Mashnak/DataAnalytics')
+
+    aboutscreen = Tk()
+    aboutscreen.title('About')
+    aboutscreen.geometry("300x180+%d+%d" % (
+        ((window.winfo_screenwidth() / 2.) - (300 / 2.)), ((window.winfo_screenheight() / 2.) - (180 / 2.))))
+    about_label = Label(aboutscreen)
+    about_label.config(
+        text='\nProjekt erstellt\nvon\nMarkus Schmidgall\n\n GitHub: https://github.com/Mashnak/DataAnalytics\n\n')
+    web_button = Button(aboutscreen, text='Öffne GitHub', command=openlink, cursor='hand2')
+    about_label.pack()
+    web_button.pack()
+
 
 def donothing():
-    x=0;
+    x = 0
 
 
 menubar = Menu(window)
@@ -55,7 +75,7 @@ menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = Menu(menubar, tearoff=0)
 helpmenu.add_command(label="Help Index", command=donothing)
-helpmenu.add_command(label="About...", command=donothing)
+helpmenu.add_command(label="About...", command=about)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
 window.config(menu=menubar)
