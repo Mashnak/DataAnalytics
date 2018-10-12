@@ -6,7 +6,7 @@
 
 # Import von pythoninternen CSV Funktionen
 import csv
-
+import io
 
 # Globale Variablen Deklaration
 
@@ -14,5 +14,6 @@ import csv
 # Lesen der CSV-Datei
 def getheader(csvfilepath):
     with open(csvfilepath, 'r') as csvFile:
-        csvreader = csv.DictReader(csvFile, delimiter='{')
-        return csvreader.fieldnames
+        csvreader = csv.DictReader(csvFile, delimiter=',')
+        returnstring = ', '.join(csvreader.fieldnames)
+        return returnstring
