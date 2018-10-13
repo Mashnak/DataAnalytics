@@ -1,3 +1,9 @@
+############################################################
+#                                                          #
+#             Grundlegende GUI Funktionalität              #
+#                                                          #
+############################################################
+
 from tkinter import *
 from tkinter import filedialog
 from DataImport import CSVImport
@@ -15,37 +21,70 @@ errorbg = 'red'
 successbg = 'green'
 
 
-def callback():
+def getfile():
+    """
+
+    :return:
+    """
     global csvfile
-    try:
-        name = filedialog.askopenfilename(initialdir="Externals", title="Select file",
-                                          filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
-        popupmsgsuccess()
-        csvfile = name
-        print(name)
-        return name
-    except IOError as e:
-        popupmsgfail(e)
+    csvfile = filedialog.askopenfilename(initialdir="../Externals", title="Select file",
+                                         filetype=[("csv files", "*.csv")])
+    if csvfile != '':
+        popupmsgsuccess(csvfile)
+        print(csvfile)
+        return csvfile
+    else:
+        popupmsgerror()
 
 
-def popupmsgsuccess():
-    flash_label.config(text='CSV Datei geladen!', background=successbg)
+def popupmsgsuccess(e):
+    """
+
+    :return:
+    """
+    flash_label.config(text=e + ' geladen!', background=successbg)
 
 
-def popupmsgfail(e):
-    flash_label.config(text=e, background=errorbg)
+def popupmsgerror():
+    """
+
+    :return:
+    """
+    flash_label.config(text='Keine CSV Datei ausgewählt!', background=errorbg)
 
 
 def getheaders():
+    """
+
+    :return:
+    """
     try:
         headers = CSVImport.getheader(csvfile)
         header_label.config(text=headers, background=defaultbg, wraplengt=800)
     except TypeError:
-        header_label.config(text='Erst CSV Datei auswählen!', background=errorbg)
+        header_label.config(text='Falsches Dateiformat ausgewählt!', background=errorbg)
+    except FileNotFoundError:
+        header_label.config(text='Wählen Sie eine passende CSV Datei aus!', background=errorbg)
+
+
+def getMaxValue():
+    if CSVImport.getmaxvalue:
+        maxValue_label.config(text=CSVImport.getmaxvalue(csvfile))
+    else:
+        maxValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
 
 
 def about():
+    """
+
+    :return:
+    """
+
     def openlink():
+        """
+
+        :return:
+        """
         webbrowser.open(r'https://github.com/Mashnak/DataAnalytics')
 
     aboutscreen = Tk()
@@ -54,7 +93,12 @@ def about():
         ((window.winfo_screenwidth() / 2.) - (300 / 2.)), ((window.winfo_screenheight() / 2.) - (180 / 2.))))
     about_label = Label(aboutscreen)
     about_label.config(
-        text='\nProjekt erstellt\nvon\nMarkus Schmidgall\n\n GitHub: https://github.com/Mashnak/DataAnalytics\n\n')
+        text='\n\
+************************\n\
+Autor: Markus Schmidgall\n\
+Date: 12.10.2018\n\
+Version: 0.0.1\n\
+************************\nGitHub: https://github.com/Mashnak/DataAnalytics\n\n')
     web_button = Button(aboutscreen, text='Öffne GitHub', command=openlink, cursor='hand2')
     about_label.pack()
     web_button.pack()
@@ -67,7 +111,7 @@ def donothing():
 menubar = Menu(window)
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="New", command=donothing)
-filemenu.add_command(label="Open", command=donothing)
+filemenu.add_command(label="Open", command=getfile)
 filemenu.add_command(label="Save", command=donothing)
 filemenu.add_separator()
 filemenu.add_command(label="Exit", command=window.quit)
@@ -82,15 +126,16 @@ window.config(menu=menubar)
 
 header_label = Label(window)
 flash_label = Label(window)
-showHeaders_button = Button(window, text='Header anzeigen', command=getheaders)
-getfile_button = Button(window, text='CSV Datei', command=callback)
+maxValue_label = Label(window)
+getHeaders_button = Button(window, text='Header anzeigen', command=getheaders)
+getMaxValue_button = Button(window, text='Maximalwert', command=getMaxValue)
 exit_button = Button(window, text='Beenden', command=window.quit)
 
-getfile_button.pack()
 flash_label.pack()
-showHeaders_button.pack()
+getHeaders_button.pack()
 header_label.pack()
-
+getMaxValue_button.pack()
+maxValue_label.pack()
 exit_button.pack()
 
 window.mainloop()
