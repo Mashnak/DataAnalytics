@@ -1,0 +1,30 @@
+City mpg,Classification,Driveline,Engine Type,Fuel Type,Height,Highway mpg,Horsepower,Hybrid,ID,Length,Make,Model Year,Number of Forward Gears,Torque,Transmission,Width,Year
+18,Automatic transmission,All-wheel drive,Audi 3.2L 6 cylinder 250hp 236ft-lbs,Gasoline,140,25,250,False,2009 Audi A3 3.2,143,Audi,2009 Audi A3,6,236,6 Speed Automatic Select Shift,202,2009
+22,Automatic transmission,Front-wheel drive,Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo,Gasoline,140,28,200,False,2009 Audi A3 2.0 T AT,143,Audi,2009 Audi A3,6,207,6 Speed Automatic Select Shift,202,2009
+21,Manual transmission,Front-wheel drive,Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo,Gasoline,140,30,200,False,2009 Audi A3 2.0 T,143,Audi,2009 Audi A3,6,207,6 Speed Manual,202,2009
+21,Automatic transmission,All-wheel drive,Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo,Gasoline,140,28,200,False,2009 Audi A3 2.0 T Quattro,143,Audi,2009 Audi A3,6,207,6 Speed Automatic Select Shift,202,2009
+21,Automatic transmission,All-wheel drive,Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo,Gasoline,140,28,200,False,2009 Audi A3 2.0 T Quattro,143,Audi,2009 Audi A3,6,207,6 Speed Automatic Select Shift,202,2009
+16,Manual transmission,All-wheel drive,Audi 3.2L 6 cylinder 265hp 243 ft-lbs,Gasoline,91,27,265,False,2009 Audi A5 3.2,17,Audi,2009 Audi A5,6,243,6 Speed Manual,62,2009
+17,Automatic transmission,All-wheel drive,Audi 3.2L 6 cylinder 265hp 243 ft-lbs,Gasoline,91,26,265,False,2009 Audi A5 3.2 AT,17,Audi,2009 Audi A5,6,243,6 Speed Automatic Select Shift,62,2009
+13,Automatic transmission,All-wheel drive,Audi 4.2L 8 cylinder 350 hp 325 ft-lbs,Gasoline,201,18,350,False,2009 Audi Q7 4.2,221,Audi,2009 Audi Q7,6,325,6 Speed Automatic Select Shift,191,2009
+14,Automatic transmission,All-wheel drive,Audi 3.6L 6 cylinder 280hp 266 ft-lbs,Gasoline,201,20,280,False,2009 Audi Q7 3.6,221,Audi,2009 Audi Q7,6,266,6 Speed Automatic Select Shift,191,2009
+122,Manual transmission,All-wheel drive,Audi 2.0L 4 cylinder 211 hp 258 ft-lbs Turbo,Gasoline,147,30,211,False,2009 Audi A4 Sedan 2.0 T Quattro,96,Audi,2009 Audi A4 Sedan,6,258,6 Speed Manual,34,2009
+21,Automatic transmission,All-wheel drive,Audi 2.0L 4 cylinder 211 hp 258 ft-lbs Turbo,Gasoline,147,27,211,False,2009 Audi A4 Sedan 2.0 T Quattro AT,96,Audi,2009 Audi A4 Sedan,6,258,6 Speed Automatic Select Shift,34,2009
+17,Automatic transmission,All-wheel drive,Audi 3.2L 6 cylinder 265hp 243 ft-lbs,Gasoline,147,26,265,False,2009 Audi A4 Sedan 3.2,96,Audi,2009 Audi A4 Sedan,6,243,6 Speed Automatic Select Shift,34,2009
+20,Automatic transmission,Front-wheel drive,Acura 3.5L 6 Cylinder 280 hp 254 ft-lbs,Gasoline,172,29,280,False,2012 Acura TL,63,Acura,2012 Acura TL,6,254,6 Speed Automatic Select Shift,87,2012
+18,Automatic transmission,All-wheel drive,Acura 3.7L 6 Cylinder 305 hp 273 ft-lbs,Gasoline,172,26,305,False,2012 Acura TL SH-AWD,63,Acura,2012 Acura TL,6,273,6 Speed Automatic Select Shift,87,2012
+12,Automatic transmission,All-wheel drive,BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo,Gasoline,226,17,555,False,2010 BMW X5 M SUV,243,BMW,2010 BMW X5,6,500,6 Speed Automatic Select Shift,201,2010
+12,Automatic transmission,All-wheel drive,BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo,Gasoline,226,17,555,False,2011 BMW X5 M SUV,243,BMW,2011 BMW X5,6,500,6 Speed Automatic Select Shift,201,2011
+12,Automatic transmission,All-wheel drive,BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo,Gasoline,148,17,555,False,2010 BMW X6 M,12,BMW,2010 BMW X6,6,500,6 Speed Automatic Select Shift,191,2010
+12,Automatic transmission,All-wheel drive,BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo,Gasoline,148,17,555,False,2011 BMW X6 M,12,BMW,2011 BMW X6,6,500,6 Speed Automatic Select Shift,191,2011
+18,Manual transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,112,25,185,False,2012 Chevrolet Colorado Work Truck,22,Chevrolet,2012 Chevrolet Colorado,5,190,5 Speed Manual,181,2012
+18,Manual transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,112,25,185,False,2012 Chevrolet Colorado Extended Cab Work Truck,140,Chevrolet,2012 Chevrolet Colorado,5,190,5 Speed Manual,181,2012
+18,Automatic transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,120,25,185,False,2012 Chevrolet Colorado Crew Cab 1LT,140,Chevrolet,2012 Chevrolet Colorado,4,190,4 Speed Automatic,181,2012
+18,Manual transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,112,25,185,False,2011 Chevrolet Colorado Work Truck,22,Chevrolet,2011 Chevrolet Colorado,5,190,5 Speed Manual,181,2011
+18,Manual transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,112,25,185,False,2011 Chevrolet Colorado Extended Cab Work Truck,140,Chevrolet,2011 Chevrolet Colorado,5,190,5 Speed Manual,181,2011
+18,Automatic transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,120,25,185,False,2011 Chevrolet Colorado Crew Cab 1LT,140,Chevrolet,2011 Chevrolet Colorado,4,190,4 Speed Automatic,181,2011
+18,Manual transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,112,25,185,False,2010 Chevrolet Colorado Work Truck,22,Chevrolet,2010 Chevrolet Colorado,5,190,5 Speed Manual,181,2010
+20,Manual transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,112,26,185,False,2010 Chevrolet Colorado Extended Cab Work Truck,140,Chevrolet,2010 Chevrolet Colorado,5,190,5 Speed Manual,181,2010
+18,Automatic transmission,Rear-wheel drive,Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs,Gasoline,120,25,185,False,2010 Chevrolet Colorado Crew Cab LT1,140,Chevrolet,2010 Chevrolet Colorado,4,190,4 Speed Automatic,181,2010
+13,Automatic transmission,Rear-wheel drive,Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV,Gasoline,77,18,310,False,2012 Chevrolet Express LS 1500,60,Chevrolet,2012 Chevrolet Express,4,334,4 Speed Automatic,219,2012
+9,Automatic transmission,All-wheel drive,Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV,E85,77,12,310,False,2012 Chevrolet Express LS 1500 AWD,60,Chevrolet,2012 Chevrolet Express,4,334,4 Speed Automatic,219,2012
