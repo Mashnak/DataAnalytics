@@ -5,8 +5,7 @@
 ############################################################
 
 # Import von pythoninternen CSV Funktionen
-import csv
-
+import pandas as pd
 
 # Lesen der CSV-Datei
 def getheader(csvfilepath):
@@ -15,10 +14,8 @@ def getheader(csvfilepath):
     :param csvfilepath:
     :return:
     """
-    with open(csvfilepath, 'r') as csvFile:
-        csvreader = csv.DictReader(csvFile, delimiter=',')
-        returnstring = ', '.join(csvreader.fieldnames)
-        return returnstring
+    data = pd.read_csv(csvfilepath)
+    return list(data)
 
 
 def getmaxvalue(csvfilepath, columnname):
@@ -30,14 +27,11 @@ def getmaxvalue(csvfilepath, columnname):
     """
     if columnname is '':
         return False
-    with open(csvfilepath, 'r') as csvFile:
-        csvreader = csv.DictReader(csvFile)
-        next(csvreader)
-        try:
-            answer = max(csvreader, key=lambda column: int(column[columnname].replace(',', '')))
-            return answer
-        except ValueError:
-            return False
+    data = pd.read_csv(csvfilepath)
+    try:
+        return data[columnname].max()
+    except ValueError:
+        return False
 
 
 def getavgvalue(csvfilepath, columnname):
@@ -49,12 +43,8 @@ def getavgvalue(csvfilepath, columnname):
     """
     if columnname is '':
         return False
-    with open(csvfilepath, 'r') as csvFile:
-        csvreader = csv.DictReader(csvFile)
-        next(csvreader)
-        try:
-            answer = 0
-
-            return answer
-        except ValueError:
-            return False
+    data = pd.read_csv(csvfilepath)
+    try:
+        return data[columnname].mean()
+    except ValueError:
+        return False
