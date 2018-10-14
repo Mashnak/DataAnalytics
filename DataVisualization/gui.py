@@ -66,15 +66,27 @@ def getheaders():
 
 
 def getMaxValue():
+    """
+
+    :return:
+    """
     maxtext = CSVImport.getmaxvalue(csvfile, columnname_entry.get())
     if maxtext:
-        maxValue_label.config(text=maxtext)
+        maxValue_label.config(text=maxtext, background=defaultbg)
     else:
         maxValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
 
 
 def getAvgValue():
-    None
+    """
+
+    :return:
+    """
+    avgtext = CSVImport.getavgvalue(csvfile, columnname_entry.get())
+    if avgtext:
+        avgValue_label.config(text=avgtext, background=defaultbg)
+    else:
+        avgValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
 
 def about():
     """
@@ -129,6 +141,7 @@ window.config(menu=menubar)
 header_label = Label(window)
 flash_label = Label(window)
 maxValue_label = Label(window)
+avgValue_label = Label(window)
 getHeaders_button = Button(window, text='Header anzeigen', command=getheaders)
 getMaxValue_button = Button(window, text='Maximalwert', command=getMaxValue)
 getAvgValue_button = Button(window, text="Durchschnitt", command=getAvgValue)
@@ -142,6 +155,8 @@ header_label.pack()
 columnname_entry.pack()
 getMaxValue_button.pack()
 maxValue_label.pack()
+getAvgValue_button.pack()
+avgValue_label.pack()
 exit_button.pack()
 
 window.mainloop()
