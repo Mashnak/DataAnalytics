@@ -88,6 +88,11 @@ def getAvgValue():
     else:
         avgValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
 
+
+def getDiagramm():
+    CSVImport.getDiagram(csvfile, columnname_entry.get())
+
+
 def about():
     """
 
@@ -142,9 +147,9 @@ avgValue_label = Label(window)
 getHeaders_button = Button(window, text='Header anzeigen', command=getheaders)
 getMaxValue_button = Button(window, text='Maximalwert', command=getMaxValue)
 getAvgValue_button = Button(window, text="Durchschnitt", command=getAvgValue)
+plotColumn = Button(window, text="Diagramm", command=getDiagramm)
 exit_button = Button(window, text='Beenden', command=window.quit)
 columnname_entry = Entry(window)
-
 
 flash_label.pack()
 getHeaders_button.pack()
@@ -154,6 +159,7 @@ getMaxValue_button.pack()
 maxValue_label.pack()
 getAvgValue_button.pack()
 avgValue_label.pack()
+plotColumn.pack()
 exit_button.pack()
 
 window.mainloop()
