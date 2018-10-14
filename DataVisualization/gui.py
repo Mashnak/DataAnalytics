@@ -29,7 +29,6 @@ def getfile():
                                          filetype=[("csv files", "*.csv")])
     if csvfile != '':
         popupmsgsuccess(csvfile)
-        print(csvfile)
         return csvfile
     else:
         popupmsgerror()
@@ -58,6 +57,7 @@ def getheaders():
     """
     try:
         headers = CSVImport.getheader(csvfile)
+        headers = ", ".join(headers)
         header_label.config(text=headers, background=defaultbg)
     except TypeError:
         header_label.config(text='Falsches Dateiformat ausgewählt!', background=errorbg)
@@ -124,15 +124,12 @@ def donothing():
 
 menubar = Menu(window)
 filemenu = Menu(menubar, tearoff=0)
-filemenu.add_command(label="New", command=donothing)
 filemenu.add_command(label="Open", command=getfile)
-filemenu.add_command(label="Save", command=donothing)
 filemenu.add_separator()
 filemenu.add_command(label="Exit", command=window.quit)
 menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = Menu(menubar, tearoff=0)
-helpmenu.add_command(label="Help Index", command=donothing)
 helpmenu.add_command(label="About...", command=about)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
