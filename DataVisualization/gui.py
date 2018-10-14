@@ -11,9 +11,7 @@ import webbrowser
 
 window = Tk()
 window.title('CSV Analytics')
-
-window.geometry("800x600+%d+%d" % (
-    ((window.winfo_screenwidth() / 2.) - (800 / 2.)), ((window.winfo_screenheight() / 2.) - (600 / 2.))))
+window.state('zoomed')
 
 csvfile = None
 defaultbg = window.cget('bg')
@@ -60,7 +58,7 @@ def getheaders():
     """
     try:
         headers = CSVImport.getheader(csvfile)
-        header_label.config(text=headers, background=defaultbg, wraplengt=800)
+        header_label.config(text=headers, background=defaultbg)
     except TypeError:
         header_label.config(text='Falsches Dateiformat ausgewählt!', background=errorbg)
     except FileNotFoundError:
@@ -68,11 +66,15 @@ def getheaders():
 
 
 def getMaxValue():
-    if CSVImport.getmaxvalue:
-        maxValue_label.config(text=CSVImport.getmaxvalue(csvfile))
+    maxtext = CSVImport.getmaxvalue(csvfile, columnname_entry.get())
+    if maxtext:
+        maxValue_label.config(text=maxtext)
     else:
         maxValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
 
+
+def getAvgValue():
+    None
 
 def about():
     """
@@ -129,11 +131,15 @@ flash_label = Label(window)
 maxValue_label = Label(window)
 getHeaders_button = Button(window, text='Header anzeigen', command=getheaders)
 getMaxValue_button = Button(window, text='Maximalwert', command=getMaxValue)
+getAvgValue_button = Button(window, text="Durchschnitt", command=getAvgValue)
 exit_button = Button(window, text='Beenden', command=window.quit)
+columnname_entry = Entry(window)
+
 
 flash_label.pack()
 getHeaders_button.pack()
 header_label.pack()
+columnname_entry.pack()
 getMaxValue_button.pack()
 maxValue_label.pack()
 exit_button.pack()
