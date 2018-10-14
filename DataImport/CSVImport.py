@@ -21,7 +21,7 @@ def getheader(csvfilepath):
         return returnstring
 
 
-def getmaxvalue(csvfilepath):
+def getmaxvalue(csvfilepath, columnname):
     """
 
     :param csvfilepath:
@@ -30,19 +30,8 @@ def getmaxvalue(csvfilepath):
     with open(csvfilepath, 'r') as csvFile:
         csvreader = csv.DictReader(csvFile)
         next(csvreader)
-        if checkintorfloat(csvreader):
-            maxvalue = max(float(column[0].replace(',', '')) for column in csvreader)
-            return maxvalue
-        else:
+        try:
+            answer = max(csvreader, key=lambda column: int(column[columnname].replace(',', '')))
+            return answer
+        except ValueError:
             return False
-
-
-def checkintorfloat(column):
-    """
-
-    :param column:
-    :return:
-    """
-    print(column)
-    value = column
-    return isinstance(value, int) or isinstance(value, float)
