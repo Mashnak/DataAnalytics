@@ -8,6 +8,8 @@ from tkinter import *
 from tkinter import filedialog
 from DataImport import CSVImport
 import webbrowser
+from PIL import ImageTk, Image
+import PySide2
 
 window = Tk()
 window.title('CSV Analytics')
@@ -29,6 +31,7 @@ def getfile():
                                          filetype=[("csv files", "*.csv")])
     if csvfile != '':
         popupmsgsuccess(csvfile)
+        getheaders()
         return csvfile
     else:
         popupmsgerror()
@@ -90,7 +93,7 @@ def getAvgValue():
 
 
 def getDiagramm():
-    CSVImport.getDiagram(csvfile, columnname_entry.get())
+    CSVImport.getdiagram(csvfile, columnname_entry.get())
 
 
 def about():
@@ -151,6 +154,10 @@ plotColumn = Button(window, text="Diagramm", command=getDiagramm)
 exit_button = Button(window, text='Beenden', command=window.quit)
 columnname_entry = Entry(window)
 
+#img = ImageTk.PhotoImage(Image.open("plot.jpg"))
+#panel = Label(window, image=img)
+#panel.pack(side="bottom", fill="both", expand="yes")
+
 flash_label.pack()
 getHeaders_button.pack()
 header_label.pack()
@@ -160,6 +167,7 @@ maxValue_label.pack()
 getAvgValue_button.pack()
 avgValue_label.pack()
 plotColumn.pack()
+#panel.pack(side="bottom", fill="both", expand="yes")
 exit_button.pack()
 
 window.mainloop()

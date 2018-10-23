@@ -6,7 +6,7 @@
 
 # Import von pythoninternen CSV Funktionen
 import pandas as pd
-import matplotlib
+import matplotlib.pyplot as plt
 
 
 # Lesen der CSV-Datei
@@ -52,7 +52,7 @@ def getavgvalue(csvfilepath, columnname):
         return False
 
 
-def getDiagram(csvfilepatch, columnname):
+def getdiagram(csvfilepatch, columnname):
     """
 
     :param csvfilepatch:
@@ -63,6 +63,10 @@ def getDiagram(csvfilepatch, columnname):
         return False
     data = pd.read_csv(csvfilepatch)
     try:
-        data[columnname].plot()
+        x = data[columnname]
+        y = data.index.values
+        plt.plot(y, x)
+        plt.show()
     except ValueError:
+        print('False')
         return False
