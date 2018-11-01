@@ -31,7 +31,6 @@ def getfile():
                                          filetype=[("csv files", "*.csv")])
     if csvfile != '':
         popupmsgsuccess(csvfile)
-        getheaders()
         return csvfile
     else:
         popupmsgerror()
@@ -80,6 +79,17 @@ def getMaxValue():
         maxValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
 
 
+def getMinValue():
+    """
+
+    :return:
+    """
+    mintext = CSVImport.getminvalue(csvfile, columnname_entry.get())
+    if mintext:
+        minValue_label.config(text=mintext, background=defaultbg)
+    else:
+        minValue_label.config(text="Die Spalte enthält keine nummerischen Werte!", background=errorbg)
+
 def getAvgValue():
     """
 
@@ -126,9 +136,6 @@ Version: 0.0.1\n\
     web_button.pack()
 
 
-def donothing():
-    x = 0
-
 
 menubar = Menu(window)
 filemenu = Menu(menubar, tearoff=0)
@@ -146,17 +153,16 @@ window.config(menu=menubar)
 header_label = Label(window)
 flash_label = Label(window)
 maxValue_label = Label(window)
+minValue_label = Label(window)
 avgValue_label = Label(window)
 getHeaders_button = Button(window, text='Header anzeigen', command=getheaders)
 getMaxValue_button = Button(window, text='Maximalwert', command=getMaxValue)
+getMinValue_button = Button(window, text='Minimalwert', command=getMinValue)
 getAvgValue_button = Button(window, text="Durchschnitt", command=getAvgValue)
 plotColumn = Button(window, text="Diagramm", command=getDiagramm)
 exit_button = Button(window, text='Beenden', command=window.quit)
 columnname_entry = Entry(window)
 
-#img = ImageTk.PhotoImage(Image.open("plot.jpg"))
-#panel = Label(window, image=img)
-#panel.pack(side="bottom", fill="both", expand="yes")
 
 flash_label.pack()
 getHeaders_button.pack()
@@ -164,10 +170,12 @@ header_label.pack()
 columnname_entry.pack()
 getMaxValue_button.pack()
 maxValue_label.pack()
+getMinValue_button.pack()
+minValue_label.pack()
 getAvgValue_button.pack()
 avgValue_label.pack()
 plotColumn.pack()
-#panel.pack(side="bottom", fill="both", expand="yes")
+
 exit_button.pack()
 
 window.mainloop()

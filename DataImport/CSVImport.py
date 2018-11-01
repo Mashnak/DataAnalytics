@@ -31,10 +31,34 @@ def getmaxvalue(csvfilepath, columnname):
         return False
     data = pd.read_csv(csvfilepath)
     try:
-        return data[columnname].max()
+        maxvalue = data[columnname].max()
+        # Fixing the if statement to see if maxvalue is a string or not
+        if maxvalue is int:
+            return maxvalue
+        else:
+            return False
     except ValueError:
         return False
 
+def getminvalue(csvfilepath, columnname):
+    """
+
+    :param csvfilepath:
+    :param columnname:
+    :return:
+    """
+    if columnname is '':
+        return False
+    data = pd.read_csv(csvfilepath)
+    try:
+        minvalue = data[columnname].min()
+        # Fixing the if statement to see if minvalue is a string or not
+        if minvalue is int:
+            return minvalue
+        else:
+            return False
+    except ValueError:
+        return False
 
 def getavgvalue(csvfilepath, columnname):
     """
@@ -47,8 +71,12 @@ def getavgvalue(csvfilepath, columnname):
         return False
     data = pd.read_csv(csvfilepath)
     try:
-        return data[columnname].mean()
-    except ValueError:
+        meanvalue = data[columnname].mean()
+        if meanvalue is int:
+            return meanvalue
+        else:
+            return False
+    except TypeError:
         return False
 
 
