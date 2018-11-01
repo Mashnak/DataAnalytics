@@ -33,12 +33,13 @@ def getmaxvalue(csvfilepath, columnname):
     try:
         maxvalue = data[columnname].max()
         # Fixing the if statement to see if maxvalue is a string or not
-        if maxvalue is int:
-            return maxvalue
+        if isinstance(maxvalue, str):
+            return False
         else:
             return maxvalue
     except ValueError:
         return False
+
 
 def getminvalue(csvfilepath, columnname):
     """
@@ -53,12 +54,13 @@ def getminvalue(csvfilepath, columnname):
     try:
         minvalue = data[columnname].min()
         # Fixing the if statement to see if minvalue is a string or not
-        if minvalue is int:
-            return minvalue
+        if isinstance(minvalue, str):
+            return False
         else:
             return minvalue
     except ValueError:
         return False
+
 
 def getavgvalue(csvfilepath, columnname):
     """
