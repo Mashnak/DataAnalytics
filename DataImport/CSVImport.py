@@ -36,7 +36,7 @@ def getmaxvalue(csvfilepath, columnname):
         if maxvalue is int:
             return maxvalue
         else:
-            return False
+            return maxvalue
     except ValueError:
         return False
 
@@ -56,7 +56,7 @@ def getminvalue(csvfilepath, columnname):
         if minvalue is int:
             return minvalue
         else:
-            return False
+            return minvalue
     except ValueError:
         return False
 
@@ -75,7 +75,7 @@ def getavgvalue(csvfilepath, columnname):
         if meanvalue is int:
             return meanvalue
         else:
-            return False
+            return meanvalue
     except TypeError:
         return False
 

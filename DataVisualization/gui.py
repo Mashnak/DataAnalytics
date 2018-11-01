@@ -103,19 +103,23 @@ def getAvgValue():
 
 
 def getDiagramm():
+    """
+    Calls the CSVIm
+    :return:
+    """
     CSVImport.getdiagram(csvfile, columnname_entry.get())
 
 
 def about():
     """
-
-    :return:
+    Window to show the about infos in the menubar
+    :return: nothing
     """
 
     def openlink():
         """
-
-        :return:
+        Function to set the GitHub button on the about window and function to open GitHub link
+        :return: nothing
         """
         webbrowser.open(r'https://github.com/Mashnak/DataAnalytics')
 
@@ -136,7 +140,7 @@ Version: 0.0.1\n\
     web_button.pack()
 
 
-
+# Build the menubar
 menubar = Menu(window)
 filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="Open", command=getfile)
@@ -150,6 +154,7 @@ menubar.add_cascade(label="Help", menu=helpmenu)
 
 window.config(menu=menubar)
 
+#Definition of the gui elements split into Labels and Buttons
 header_label = Label(window)
 flash_label = Label(window)
 maxValue_label = Label(window)
@@ -163,7 +168,7 @@ plotColumn = Button(window, text="Diagramm", command=getDiagramm)
 exit_button = Button(window, text='Beenden', command=window.quit)
 columnname_entry = Entry(window)
 
-
+# Packing the gui elements in the gui window element
 flash_label.pack()
 getHeaders_button.pack()
 header_label.pack()
