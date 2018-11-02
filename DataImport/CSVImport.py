@@ -7,7 +7,7 @@
 # Import von pythoninternen CSV Funktionen
 import pandas as pd
 import matplotlib.pyplot as plt
-
+pd.set_option('display.max_columns', None)
 
 # Lesen der CSV-Datei
 def getheader(csvfilepath):
